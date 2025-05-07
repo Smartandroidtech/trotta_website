@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Studio di Psichiatria e Psicoanalisi della Dott.ssa Antonella Trotta a Civitavecchia. Contattami per un primo colloquio.">
+    <title>Dott.ssa Antonella Trotta | Psichiatra e Psicoanalista | Civitavecchia</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome (per le icone) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Animate On Scroll (AOS) Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /*--------------------------------------------------------------
+        # Variabili CSS e Stili Generali
+        --------------------------------------------------------------*/
+        :root {
+            --color-primary: #656D4A;
+            --color-secondary: #333D29;
+            --color-tertiary: #A4AC86;
+            --color-bonus: #71422C;
+            --color-text: #333333;
+            --color-light-text: #f8f9fa;
+            --color-background: #FFFFFF;
+            --color-light-background: #f4f5f0;
+            /* Variazione leggera del terziario */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+            --header-height: 90px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-secondary);
+            color: var(--color-secondary);
+            margin-bottom: 0.8em;
+            font-weight: 700;
+        }
+
+        .no-margin-bottom {
+            margin-bottom: 0 !important;
+        }
+
+        h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            line-height: 1.4;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--color-bonus);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1140px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        section {
+            padding: 80px 0;
+            overflow: hidden;
+            /* Per contenere le animazioni AOS */
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-secondary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--color-primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-bg {
+            background-color: var(--color-light-background);
+        }
+
+        .placeholder-image {
+            background-color: var(--color-tertiary);
+            border: 1px solid var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-secondary);
+            font-style: italic;
+            text-align: center;
+            min-height: 250px;
+            /* Altezza minima per visibilità */
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            /* Mantiene proporzioni comuni */
+        }
+
+        /*--------------------------------------------------------------
+        # Header e Navigazione
+        --------------------------------------------------------------*/
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 56px;
+            /* Regola a piacere */
+            width: auto;
+            display: block;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar a {
+            color: var(--color-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--color-bonus);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .navbar a:hover::after,
+        .navbar a.active::after {
+            width: 100%;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: var(--color-bonus);
+        }
+
+        /* Mobile Nav Toggle */
+        .mobile-nav-toggle {
+            display: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--color-secondary);
+            line-height: 0;
+            transition: 0.5s;
+        }
+
+        /*--------------------------------------------------------------
+        # Hero Section (#home)
+        --------------------------------------------------------------*/
+        #home {
+            width: 100%;
+            margin-top: var(--header-height);
+            background: var(--color-tertiary);
+            /* Fallback */
+            /* Dark overlay over background image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('./assets/hero_bkg_1.png');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Bubble animation for a soft, relaxing background */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: rise var(--duration, 20s) ease-in infinite;
+            width: var(--size, 80px);
+            height: var(--size, 80px);
+            left: var(--left, 50%);
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-110vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        #home .hero-container {
+            z-index: 2;
+            padding: 40px 32px;
+            border-radius: 24px;
+            max-width: 700px;
+            transition: background 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            transform: translateY(40px) scale(0.98);
+            filter: blur(8px);
+        }
+
+        #home .hero-container.hero-animate {
+            animation: heroFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+        }
+
+        @keyframes heroFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.98);
+                filter: blur(8px);
+            }
+
+            70% {
+                opacity: 1;
+                filter: blur(1.5px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        #home h1 {
+            color: var(--color-light-text);
+            margin-bottom: 20px;
+            font-size: 3.5rem;
+            /* Più grande per impatto */
+            text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.22);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        #home h2 {
+            color: var(--color-tertiary);
+            font-family: var(--font-primary);
+            font-weight: 500;
+            font-size: 1.6rem;
+            margin-bottom: 32px;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        #home label,
+        #home .label,
+        #home .hero-container label {
+            color: #fff;
+            font-size: 1.08rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+            background: rgba(0, 0, 0, 0.14);
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        #home .btn-contact {
+            font-family: var(--font-primary);
+            font-weight: 700;
+            font-size: 1.08rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 14px 38px;
+            border-radius: 50px;
+            transition: transform 0.28s cubic-bezier(.4, 1.5, .5, 1), box-shadow 0.28s cubic-bezier(.4, 1.5, .5, 1), background 0.28s, color 0.28s;
+            margin: 10px;
+            border: 2px solid var(--color-light-text);
+            color: var(--color-light-text);
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.09), 0 1.5px 16px 0 rgba(0, 0, 0, 0.10);
+        }
+
+        #home .btn-contact.btn-primary {
+            background: var(--color-primary);
+            color: var(--color-light-text);
+            border-color: var(--color-primary);
+        }
+
+        #home .btn-contact.btn-primary:hover,
+        #home .btn-contact.btn-primary:focus {
+            background: var(--color-secondary);
+            color: var(--color-light-text);
+            border-color: var(--color-secondary);
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 8px 28px 0 rgba(31, 38, 135, 0.18);
+        }
+
+        #home .btn-contact.btn-secondary {
+            background: transparent;
+            color: var(--color-light-text);
+            border-color: var(--color-primary);
+        }
+
+        #home .btn-contact.btn-secondary:hover,
+        #home .btn-contact.btn-secondary:focus {
+            background: var(--color-light-text);
+            color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: scale(1.05) translateY(-1px);
+            box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.13);
+        }
+
+        @media (max-width: 600px) {
+            #home .hero-container {
+                padding: 18px 5vw;
+                border-radius: 14px;
+                max-width: 98vw;
+            }
+
+            #home h1 {
+                font-size: 2.1rem;
+            }
+
+            #home h2 {
+                font-size: 1.1rem;
+                margin-bottom: 18px;
+            }
+
+            #home label,
+            #home .label,
+            #home .hero-container label {
+                font-size: 0.99rem;
+                padding: 3px 6px;
+            }
+
+            #home .btn-contact {
+                font-size: 0.99rem;
+                padding: 11px 18px;
+            }
+        }
+
+        /*--------------------------------------------------------------
+        # Chi Sono Section
+        --------------------------------------------------------------*/
+        #chi-sono .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        #chi-sono h3 {
+            font-weight: 600;
+            font-size: 2rem;
+            color: var(--color-secondary);
+        }
+
+        .special-qualification {
+            margin-bottom: 0.8em;
+        }
+
+        #chi-sono p:last-child {
+            margin-bottom: 0;
+        }
+
+        #chi-sono .placeholder-image {
+            min-height: 400px;
+            aspect-ratio: 3 / 4;
+            /* Formato ritratto */
+            border-radius: 8px;
+        }
+
+        /*--------------------------------------------------------------
+        # Approccio Section
+        --------------------------------------------------------------*/
+        #approccio p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+            text-align: center;
+        }
+
+        #approccio .approach-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-background);
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+            height: 100%;
+            /* Per allineare altezza se in griglia */
+        }
+
+        #approccio .approach-item:hover {
+            transform: translateY(-10px);
+        }
+
+        #approccio .approach-item i {
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        #approccio h4 {
+            font-size: 1.5rem;
+            color: var(--color-bonus);
+            margin-bottom: 15px;
+        }
+
+        #approccio .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /*--------------------------------------------------------------
+        # Aree di Intervento Section
+        --------------------------------------------------------------*/
+        #aree-intervento .area-item {
+            background: var(--color-primary);
+            color: var(--color-light-text);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #aree-intervento .area-item:hover {
+            background: var(--color-secondary);
+        }
+
+        #aree-intervento .area-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--color-tertiary);
+        }
+
+        #aree-intervento .area-item h4 {
+            font-size: 1.2rem;
+            color: var(--color-light-text);
+            font-family: var(--font-primary);
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        #aree-intervento .row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        /*--------------------------------------------------------------
+        # Contatti Section
+        --------------------------------------------------------------*/
+        #contatti .contact-info {
+            margin-bottom: 40px;
+        }
+
+        #contatti .contact-info .info-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--color-light-background);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        #contatti .contact-info .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        #contatti .contact-info i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-right: 20px;
+            width: 50px;
+            /* Larghezza fissa per allineamento */
+            text-align: center;
+        }
+
+        #contatti .contact-info h3 {
+            font-size: 1.3rem;
+            color: var(--color-secondary);
+            font-family: var(--font-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        #contatti .contact-info p,
+        #contatti .contact-info a {
+            margin-bottom: 0;
+            color: var(--color-text);
+            word-break: break-word;
+            /* Evita overflow */
+        }
+
+        #contatti .contact-info a:hover {
+            color: var(--color-bonus);
+        }
+
+        #contatti .contact-form {
+            padding: 30px;
+            background: var(--color-light-background);
+            border-radius: 8px;
+        }
+
+        #contatti .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        #contatti .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--color-secondary);
+        }
+
+        #contatti .contact-form input[type="text"],
+        #contatti .contact-form input[type="email"],
+        #contatti .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-tertiary);
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: border-color 0.3s ease;
+        }
+
+        #contatti .contact-form input[type="text"]:focus,
+        #contatti .contact-form input[type="email"]:focus,
+        #contatti .contact-form textarea:focus {
+            border-color: var(--color-primary);
+            outline: none;
+        }
+
+        #contatti .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        #contatti .contact-form button[type="submit"] {
+            background: var(--color-bonus);
+            color: var(--color-light-text);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+
+        #contatti .contact-form button[type="submit"]:hover {
+            background: var(--color-secondary);
+        }
+
+        #contatti .main-cta-buttons {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        #contatti .main-cta-buttons .btn-cta {
+            font-family: var(--font-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: 0.5s;
+            margin: 10px 15px;
+            color: var(--color-light-text);
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+        }
+
+        #contatti .main-cta-buttons .btn-cta i {
+            margin-right: 8px;
+        }
+
+        #contatti .main-cta-buttons .btn-whatsapp {
+            background-color: #25D366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        #contatti .main-cta-buttons .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        #contatti .main-cta-buttons .btn-phone {
+            background-color: var(--color-primary);
+            box-shadow: 0 4px 15px rgba(137, 143, 122, 0.4);
+        }
+
+        #contatti .main-cta-buttons .btn-phone:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(137, 143, 122, 0.6);
+        }
+
+
+        /*--------------------------------------------------------------
+        # Footer
+        --------------------------------------------------------------*/
+        #footer {
+            background: var(--color-secondary);
+            color: var(--color-light-text);
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        #footer a {
+            color: var(--color-tertiary);
+            transition: color 0.3s ease;
+        }
+
+        #footer a:hover {
+            color: var(--color-light-text);
+        }
+
+        /*--------------------------------------------------------------
+        # Responsive Design
+        --------------------------------------------------------------*/
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+
+            #chi-sono .content {
+                grid-template-columns: 1fr;
+            }
+
+            #chi-sono .placeholder-image {
+                margin-bottom: 30px;
+                order: -1;
+                /* Mostra l'immagine prima su mobile */
+            }
+
+            #contatti .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            #contatti .contact-form {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            /* Mobile Nav */
+            .navbar {
+                display: none;
+            }
+
+            .navbar-mobile {
+                display: block;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                /* Nascosto fuori schermo */
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                transition: right 0.3s ease-in-out;
+                padding-top: 60px;
+                /* Spazio per il pulsante di chiusura */
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .navbar-mobile.active {
+                right: 0;
+                /* Mostra il menu */
+            }
+
+            .navbar-mobile ul {
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px;
+            }
+
+            .navbar-mobile a {
+                display: block;
+                padding: 12px 15px;
+                color: var(--color-secondary);
+                font-weight: 600;
+                font-size: 1rem;
+                position: relative;
+                border-bottom: 1px solid var(--color-tertiary);
+            }
+
+            .navbar-mobile a:hover,
+            .navbar-mobile a.active {
+                color: var(--color-bonus);
+                background-color: var(--color-light-background);
+            }
+
+            .navbar-mobile a::after {
+                display: none;
+            }
+
+            /* Rimuove sottolineatura desktop */
+
+            .mobile-nav-toggle {
+                display: block;
+            }
+
+            .mobile-nav-toggle.fa-times {
+                /* Icona chiusura */
+                position: fixed;
+                top: 25px;
+                right: 25px;
+                z-index: 1001;
+                /* Sopra il menu */
+                color: var(--color-bonus);
+            }
+
+
+            #home {
+                min-height: 600px;
+                height: auto;
+                padding: 150px 0 100px 0;
+            }
+
+            #home h1 {
+                font-size: 2.5rem;
+            }
+
+            #home h2 {
+                font-size: 1.2rem;
+            }
+
+            #home .btn-contact {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            #contatti .main-cta-buttons .btn-cta {
+                padding: 12px 30px;
+                font-size: 1rem;
+                display: block;
+                margin: 15px auto;
+                max-width: 300px;
+                /* Limita larghezza */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header">
+        <div class="container">
+
+            <div class="logo">
+                <a href="#home">
+                    <img src="./assets/logo.png" alt="Dott.ssa Antonella Trotta – Logo">
+                </a>
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a class="nav-link active" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#chi-sono">Chi Sono</a></li>
+                    <li><a class="nav-link" href="#approccio">Approccio</a></li>
+                    <li><a class="nav-link" href="#aree-intervento">Aree di Intervento</a></li>
+                    <li><a class="nav-link" href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+            <!-- Bottone Hamburger per Mobile -->
+            <i class="fas fa-bars mobile-nav-toggle"></i>
+
+            <!-- Navigazione Mobile (inizialmente nascosta) -->
+            <nav class="navbar-mobile" style="display: none;">
+                <ul>
+                    <li><a class="nav-link active" href="#home">Home</a></li>
+                    <li><a class="nav-link" href="#chi-sono">Chi Sono</a></li>
+                    <li><a class="nav-link" href="#approccio">Approccio</a></li>
+                    <li><a class="nav-link" href="#aree-intervento">Aree di Intervento</a></li>
+                    <li><a class="nav-link" href="#contatti">Contatti</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header><!-- End Header -->
+
+    <!-- ======= Hero Section ======= -->
+    <section id="home">
+        <div class="container hero-container" data-aos="fade-up">
+            <h1>Dott.ssa Antonella Trotta</h1>
+            <h2 style="color: var(--color-light-text);"><i>Psichiatra e Psicoanalista a Civitavecchia</i>
+                <h2>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
+                            target="_blank" class="btn-contact btn-secondary"><i class="fab fa-whatsapp"></i> Contatta
+                            su WhatsApp</a>
+                        <a href="#contatti" class="btn-contact btn-primary"><i class="fas fa-calendar-check"></i>
+                            Prenota un Colloquio</a>
+                    </div>
+        </div>
+        <!-- Soft floating bubbles for a calming effect -->
+        <div class="bubbles">
+            <span class="bubble" style="--size: 60px; --left: 10%; --delay: 0s;  --duration: 25s;"></span>
+            <span class="bubble" style="--size: 90px; --left: 25%; --delay: 5s;  --duration: 30s;"></span>
+            <span class="bubble" style="--size: 50px; --left: 40%; --delay: 2s;  --duration: 20s;"></span>
+            <span class="bubble" style="--size: 80px; --left: 60%; --delay: 7s;  --duration: 35s;"></span>
+            <span class="bubble" style="--size: 70px; --left: 75%; --delay: 3s;  --duration: 28s;"></span>
+            <span class="bubble" style="--size: 100px;--left: 85%; --delay: 6s;  --duration: 40s;"></span>
+        </div>
+    </section><!-- End Hero -->
+
+    <main id="main">
+
+        <!-- ======= Chi Sono Section ======= -->
+        <section id="chi-sono" class="section-bg">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-down">
+                    <h2>Chi Sono</h2>
+                </div>
+
+                <div class="content">
+                    <div data-aos="fade-right">
+                        <!-- Immagine Placeholder per Ritratto -->
+                        <div class="placeholder-image">
+                            <span>Immagine Dott.ssa Trotta<br>(Formato Ritratto Consigliato)</span>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="no-margin-bottom">Dott.ssa Antonella Trotta</h3>
+                        <p class="special-qualification"><em>Psichiatra e Psicoanalista</em></p>
+                        <p>
+                            Sono la Dott.ssa Antonella Trotta, medico chirurgo specialista in Psichiatria e
+                            Psicoanalista. Mi dedico alla cura e al benessere psicologico dei miei pazienti offrendo
+                            percorsi personalizzati per affrontare disagi e difficoltà.
+                        </p>
+                        <p>
+                            Credo fermamente nell'importanza di un ascolto attento e non giudicante, creando uno spazio
+                            sicuro in cui esplorare le proprie emozioni e trovare nuove strade verso l'equilibrio
+                            interiore.
+                        </p>
+                        <p>
+                            La mia formazione [aggiungere breve accenno a formazione o esperienza significativa se si
+                            desidera] mi permette di integrare diverse prospettive per offrire il supporto più adeguato
+                            ad ogni singola persona.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Chi Sono Section -->
+
+        <!-- ======= Approccio Section ======= -->
+        <section id="approccio">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-down">
+                    <h2>Il Mio Approccio</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">
+                        Il mio lavoro si basa su un approccio integrato che combina la solida base della psichiatria con
+                        la profondità dell'analisi psicoanalitica, adattandosi alle esigenze uniche di ciascun
+                        individuo.
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="approach-item">
+                            <i class="fas fa-brain"></i>
+                            <h4>Psichiatria Clinica</h4>
+                            <p>Valutazione diagnostica accurata, gestione farmacologica quando necessaria e monitoraggio
+                                costante per un trattamento efficace dei disturbi psichiatrici.</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="approach-item">
+                            <i class="fas fa-comments"></i>
+                            <h4>Psicoanalisi</h4>
+                            <p>Un percorso di esplorazione profonda del proprio mondo interiore per comprendere le
+                                radici dei conflitti, migliorare la consapevolezza di sé e promuovere un cambiamento
+                                duraturo.</p>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="approach-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <h4>Ascolto Empatico</h4>
+                            <p>Creazione di una relazione terapeutica basata sulla fiducia, l'empatia e il rispetto,
+                                fondamentale per un percorso di cura efficace e trasformativo.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Approccio Section -->
+
+        <!-- ======= Aree di Intervento Section ======= -->
+        <section id="aree-intervento" class="section-bg">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-down">
+                    <h2>Aree di Intervento</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">Affronto un'ampia gamma di disturbi e disagi psicologici.
+                        Ecco alcune delle aree principali:</p>
+                </div>
+
+                <div class="row">
+                    <div class="col" data-aos="fade-up" data-aos-delay="100">
+                        <div class="area-item">
+                            <i class="fas fa-cloud-rain"></i>
+                            <h4>Disturbi d'Ansia</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="150">
+                        <div class="area-item">
+                            <i class="fas fa-sad-tear"></i>
+                            <h4>Disturbi Depressivi</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="200">
+                        <div class="area-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Disturbi di Personalità</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="250">
+                        <div class="area-item">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Disturbi Alimentari</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="300">
+                        <div class="area-item">
+                            <i class="fas fa-heartbeat"></i>
+                            <h4>Difficoltà Relazionali</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="350">
+                        <div class="area-item">
+                            <i class="fas fa-briefcase"></i>
+                            <h4>Problematiche Lavorative</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="400">
+                        <div class="area-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>Disturbi Ossessivo-Compulsivi</h4>
+                        </div>
+                    </div>
+                    <div class="col" data-aos="fade-up" data-aos-delay="450">
+                        <div class="area-item">
+                            <i class="fas fa-user-check"></i>
+                            <h4>Crescita Personale</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section><!-- End Aree di Intervento Section -->
+
+        <!-- ======= Contatti Section ======= -->
+        <section id="contatti">
+            <div class="container">
+
+                <div class="section-title" data-aos="fade-down">
+                    <h2>Contattami</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">Fai il primo passo verso il tuo benessere. Sono a
+                        disposizione per rispondere alle tue domande e fissare un primo colloquio.</p>
+                </div>
+
+                <!-- Pulsanti CTA Principali -->
+                <div class="main-cta-buttons" data-aos="fade-up" data-aos-delay="150">
+                    <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
+                        target="_blank" class="btn-cta btn-whatsapp pulse">
+                        <i class="fab fa-whatsapp"></i> Invia un messaggio WhatsApp
+                    </a>
+                    <a href="#contatti" class="btn-cta btn-primary"><i class="fas fa-calendar-check"></i> Prenota un
+                        Colloquio</a>
+                </div>
+
+
+                <div class="row mt-5">
+
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="contact-info">
+                            <div class="info-box">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Indirizzo Studio</h3>
+                                    <p>Via Palmiro Togliatti 13/a, <br>00053 Civitavecchia (RM)</p>
+                                    <!-- Optional: Link a Google Maps -->
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Via+Palmiro+Togliatti+13/a,+Civitavecchia+RM"
+                                        target="_blank"
+                                        style="font-size: 0.9em; margin-top: 5px; display:inline-block;">Visualizza su
+                                        Google Maps</a>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <a href="mailto:antonella.trotta.dr@gmail.com">antonella.trotta.dr@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <i class="fas fa-phone-alt"></i>
+                                <div>
+                                    <h3>Telefono</h3>
+                                    <a href="tel:+393383751325">+39 338 3751325</a>
+                                </div>
+                            </div>
+                            <div class="info-box">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h3>WhatsApp</h3>
+                                    <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
+                                        target="_blank">+39 338 3751325</a> <br> (Metodo preferito per contatto rapido)
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left">
+                        <form action="mailto:antonella.trotta.dr@gmail.com" method="post" enctype="text/plain"
+                            class="contact-form">
+                            <p
+                                style="text-align:center; margin-bottom: 20px; color: var(--color-secondary); font-style: italic;">
+                                Oppure compila il form per inviare una mail:</p>
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" name="Nome" class="form-control" id="name" required
+                                    placeholder="Il tuo nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="Email" id="email" required
+                                    placeholder="La tua email">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Oggetto</label>
+                                <input type="text" class="form-control" name="Oggetto" id="subject" required
+                                    placeholder="Oggetto del messaggio">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Messaggio</label>
+                                <textarea class="form-control" name="Messaggio" id="message" rows="5" required
+                                    placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                            </div>
+                            <!-- NOTA: Questo form usa 'mailto:', aprirà il client di posta dell'utente.
+                                 Per una gestione più robusta (es. invio diretto senza client) servirebbe un backend o servizi terzi (es. Formspree). -->
+                            <button type="submit">Invia Messaggio</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- End Contatti Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            <p> Copyright <strong><span>Dott.ssa Antonella Trotta</span></strong>. Tutti i diritti riservati.</p>
+            <p>Via Palmiro Togliatti 13/a, 00053 Civitavecchia (RM) | P.IVA [Inserire P.IVA]</p>
+            <p><a href="#">Privacy Policy</a> | <a href="#">Cookie Policy</a></p> <!-- Aggiungere link reali -->
+            <!-- Puoi aggiungere qui link a profili professionali se presenti (es. LinkedIn, MioDottore) -->
+        </div>
+    </footer><!-- End Footer -->
+
+    <!-- Animate On Scroll (AOS) Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            "use strict";
+
+            /**
+             * Inizializza Animate On Scroll (AOS)
+             */
+            AOS.init({
+                duration: 800, // Durata animazione
+                easing: 'ease-in-out', // Tipo di easing
+                once: true, // Anima solo una volta
+                mirror: false // Non anima all'indietro uscendo dalla viewport
+            });
+
+            /**
+             * Gestione Menu Mobile
+             */
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            const navbarMobile = document.querySelector('.navbar-mobile');
+            const mainContainer = document.querySelector('body'); // O un contenitore principale se presente
+
+            // Fix: mostra il menu mobile solo quando attivo
+            function updateMobileNavDisplay() {
+                if (navbarMobile.classList.contains('active')) {
+                    navbarMobile.style.display = 'block';
+                } else {
+                    navbarMobile.style.display = 'none';
+                }
+            }
+
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', function (e) {
+                    navbarMobile.classList.toggle('active');
+                    mobileNavToggle.classList.toggle('fa-bars');
+                    mobileNavToggle.classList.toggle('fa-times');
+                    updateMobileNavDisplay();
+                    // Opzionale: blocca lo scroll del body quando il menu è aperto
+                    // mainContainer.classList.toggle('mobile-nav-active');
+                });
+            }
+
+            // Chiudi il menu mobile quando si clicca su un link
+            const navLinksMobile = document.querySelectorAll('.navbar-mobile .nav-link');
+            navLinksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarMobile.classList.contains('active')) {
+                        navbarMobile.classList.remove('active');
+                        mobileNavToggle.classList.remove('fa-times');
+                        mobileNavToggle.classList.add('fa-bars');
+                        updateMobileNavDisplay();
+                        // mainContainer.classList.remove('mobile-nav-active');
+                    }
+                });
+            });
+
+            // Aggiorna la visibilità del menu al caricamento
+            updateMobileNavDisplay();
+
+            // Chiudi il menu se si clicca fuori (opzionale)
+            // document.addEventListener('click', function (event) {
+            //     const isClickInsideNav = navbarMobile.contains(event.target);
+            //     const isClickOnToggler = mobileNavToggle.contains(event.target);
+            //     if (!isClickInsideNav && !isClickOnToggler && navbarMobile.classList.contains('active')) {
+            //         navbarMobile.classList.remove('active');
+            //         mobileNavToggle.classList.remove('fa-times');
+            //         mobileNavToggle.classList.add('fa-bars');
+            //         updateMobileNavDisplay();
+            //         // mainContainer.classList.remove('mobile-nav-active');
+            //     }
+            // });
+
+            /**
+             * Active state on scroll for navigation links
+             */
+            let navLinks = document.querySelectorAll('.navbar .nav-link, .navbar-mobile .nav-link');
+            let sections = document.querySelectorAll('section[id]');
+
+            function navHighlighter() {
+                let scrollY = window.pageYOffset;
+
+                sections.forEach(current => {
+                    const sectionHeight = current.offsetHeight;
+                    // Offset aggiuntivo per attivare il link un po' prima che la sezione sia esattamente in cima
+                    const sectionTop = current.offsetTop - 100; // Regola questo valore se necessario
+                    let sectionId = current.getAttribute('id');
+
+                    /* Se lo scroll è tra l'inizio e la fine della sezione (considerando l'offset) */
+                    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            // Rimuovi 'active' da tutti i link
+                            link.classList.remove('active');
+                            // Aggiungi 'active' al link corrispondente
+                            if (link.getAttribute('href') === '#' + sectionId) {
+                                link.classList.add('active');
+                            }
+                        });
+                        // Gestione specifica per navbar mobile se visibile
+                        let mobileLink = document.querySelector('.navbar-mobile a[href="#' + sectionId + '"]');
+                        let desktopLink = document.querySelector('.navbar a[href="#' + sectionId + '"]');
+                        if (mobileLink) mobileLink.classList.add('active');
+                        if (desktopLink) desktopLink.classList.add('active');
+
+                    } else {
+                        // Rimuovi la classe active se non si è nella sezione corrispondente
+                        // Questo previene che nessun link sia attivo se si è tra sezioni o all'inizio/fine pagina
+                        let link = document.querySelector('a[href="#' + sectionId + '"]');
+                        if (link) link.classList.remove('active');
+                        let mobileLink = document.querySelector('.navbar-mobile a[href="#' + sectionId + '"]');
+                        if (mobileLink) mobileLink.classList.remove('active');
+                    }
+                });
+
+                // Caso speciale per la home section all'inizio della pagina
+                if (scrollY < sections[0].offsetTop - 100) { // Se siamo sopra la prima sezione
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    let homeLinkDesktop = document.querySelector('.navbar a[href="#home"]');
+                    let homeLinkMobile = document.querySelector('.navbar-mobile a[href="#home"]');
+                    if (homeLinkDesktop) homeLinkDesktop.classList.add('active');
+                    if (homeLinkMobile) homeLinkMobile.classList.add('active');
+                }
+            }
+
+            // Esegui al caricamento e allo scroll
+            window.addEventListener('load', navHighlighter);
+            window.addEventListener('scroll', navHighlighter);
+
+
+        });
+    </script>
+
+    <script>
+        // Animazione apparizione hero-container
+        window.addEventListener('DOMContentLoaded', function () {
+            var hero = document.querySelector('#home .hero-container');
+            if (hero) {
+                setTimeout(function () {
+                    hero.classList.add('hero-animate');
+                }, 180); // leggero delay per effetto più naturale
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
