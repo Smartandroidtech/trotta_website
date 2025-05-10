@@ -583,7 +583,19 @@
             padding: 20px;
             background: var(--color-light-background);
             border-radius: 8px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #contatti .contact-info .info-box:hover {
+            border-color: var(--color-primary);
+        }
+
+        #contatti .contact-info .info-box.preferred {
+            border: 2px solid var(--color-primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         #contatti .contact-info .info-box:hover {
@@ -763,26 +775,29 @@
         }
 
         /* Map header & text alignment */
-        #contatti .info-box.map-box .map-header{
-            display:flex;
-            align-items:center;        /* vertical‑centers icon with text block */
+        #contatti .info-box.map-box .map-header {
+            display: flex;
+            align-items: center;
+            /* vertical‑centers icon with text block */
         }
 
-        #contatti .info-box.map-box .map-header i{
-            font-size:2rem;
-            color:var(--color-primary);
-            margin-right:18px;
-            margin-bottom:0;           /* override earlier rule */
-            flex-shrink:0;
+        #contatti .info-box.map-box .map-header i {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-right: 18px;
+            margin-bottom: 0;
+            /* override earlier rule */
+            flex-shrink: 0;
         }
 
-        #contatti .info-box.map-box .map-header-text{
-            display:flex;
-            flex-direction:column;
+        #contatti .info-box.map-box .map-header-text {
+            display: flex;
+            flex-direction: column;
         }
 
-        #contatti .info-box.map-box .map-header-text h3{
-            margin-bottom:4px;         /* tighter spacing above address */
+        #contatti .info-box.map-box .map-header-text h3 {
+            margin-bottom: 4px;
+            /* tighter spacing above address */
         }
 
         /*--------------------------------------------------------------
@@ -809,7 +824,9 @@
         # Responsive Design
         --------------------------------------------------------------*/
         /* Hidden by default – becomes visible in the mobile breakpoint */
-        .navbar-mobile { display: none; }
+        .navbar-mobile {
+            display: none;
+        }
 
         @media (max-width: 992px) {
             h1 {
@@ -867,15 +884,18 @@
 
                 transition:
                     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-                    opacity   0.35s ease-out,
-                    filter    0.45s ease-out;
+                    opacity 0.35s ease-out,
+                    filter 0.45s ease-out;
 
-                padding-top: 60px;          /* spazio per il pulsante di chiusura */
+                padding-top: 60px;
+                /* spazio per il pulsante di chiusura */
                 box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
 
-                display: block;             /* sovrascrive il display:none di default */
-                pointer-events: none;       /* disabilita il click quando nascosto */
+                display: block;
+                /* sovrascrive il display:none di default */
+                pointer-events: none;
+                /* disabilita il click quando nascosto */
             }
 
             .navbar-mobile.active {
@@ -994,7 +1014,8 @@
                 </ul>
             </nav>
             <!-- Bottone Hamburger per Mobile -->
-            <i class="fas fa-bars mobile-nav-toggle" role="button" aria-label="Attiva/disattiva menu di navigazione" aria-expanded="false"></i>
+            <i class="fas fa-bars mobile-nav-toggle" role="button" aria-label="Attiva/disattiva menu di navigazione"
+                aria-expanded="false"></i>
 
             <!-- Navigazione Mobile (inizialmente nascosta) -->
             <nav class="navbar-mobile">
@@ -1014,14 +1035,14 @@
     <section id="home">
         <div class="container hero-container" data-aos="fade-up">
             <h1>Dott.ssa Antonella Trotta</h1>
-            <h2 style="color: var(--color-light-text);"><i>Psichiatra e Psicoanalista a Civitavecchia</i></h2>
-                    <div data-aos="fade-up" data-aos-delay="200">
-                        <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
-                            target="_blank" class="btn-contact btn-secondary"><i class="fab fa-whatsapp"></i> Contatta
-                            su WhatsApp</a>
-                        <a href="#contatti" class="btn-contact btn-primary"><i class="fas fa-calendar-check"></i>
-                            Prenota un Colloquio</a>
-                    </div>
+            <h2 style="color: var(--color-light-text);"><i>Psichiatra a Civitavecchia</i></h2>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
+                    target="_blank" class="btn-contact btn-secondary"><i class="fab fa-whatsapp"></i> Contatta
+                    su WhatsApp</a>
+                <a href="#contatti" class="btn-contact btn-primary"><i class="fas fa-calendar-check"></i>
+                    Prenota un Colloquio</a>
+            </div>
         </div>
         <!-- Soft floating bubbles for a calming effect -->
         <div class="bubbles">
@@ -1053,7 +1074,7 @@
                     </div>
                     <div data-aos="fade-left">
                         <h3 class="no-margin-bottom">Dott.ssa Antonella Trotta</h3>
-                        <p class="special-qualification"><em>Psichiatra e Psicoanalista</em></p>
+                        <p class="special-qualification"><em>Psichiatra</em></p>
                         <p>
                             Sono la Dott.ssa Antonella Trotta, medico chirurgo specialista in Psichiatria e
                             Psicoanalista. Mi dedico alla cura e al benessere psicologico dei miei pazienti offrendo
@@ -1193,43 +1214,34 @@
                         disposizione per rispondere alle tue domande e fissare un primo colloquio.</p>
                 </div>
 
-                <!-- Pulsanti CTA Principali -->
-                <div class="main-cta-buttons" data-aos="fade-up" data-aos-delay="150">
-                    <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
-                        target="_blank" class="btn-cta btn-whatsapp pulse">
-                        <i class="fab fa-whatsapp"></i> Invia un messaggio WhatsApp
-                    </a>
-                    <a href="#contatti" class="btn-cta btn-primary"><i class="fas fa-calendar-check"></i> Prenota un
-                        Colloquio</a>
-                </div>
-
 
                 <div class="row mt-5">
 
                     <div class="col-lg-6" data-aos="fade-right">
                         <div class="contact-info">
 
-                            <div class="info-box">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h3>Email</h3>
-                                    <a href="mailto:antonella.trotta.dr@gmail.com">antonella.trotta.dr@gmail.com</a>
-                                </div>
-                            </div>
-
-                            <div class="info-box">
-                                <i class="fas fa-phone-alt"></i>
-                                <div>
-                                    <h3>Telefono</h3>
-                                    <a href="tel:+393383751325">+39 338 3751325</a>
-                                </div>
-                            </div>
-                            <div class="info-box">
+                            <div class="info-box preferred">
                                 <i class="fab fa-whatsapp"></i>
                                 <div>
                                     <h3>WhatsApp</h3>
                                     <a href="https://wa.me/393383751325?text=Buongiorno%2C%20vorrei%20richiedere%20informazioni%20per%20un%20primo%20colloquio."
                                         target="_blank">+39 338 3751325</a> <br> (Metodo preferito per contatto rapido)
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3>Telefono</h3>
+                                    <a href="tel:+393383751325">+39 338 3751325</a>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <a href="mailto:antonella.trotta.dr@gmail.com">antonella.trotta.dr@gmail.com</a>
                                 </div>
                             </div>
 
@@ -1432,6 +1444,20 @@
             window.addEventListener('load', navHighlighter);
             window.addEventListener('scroll', navHighlighter);
 
+            // Make the entire info-box clickable
+            document.querySelectorAll('#contatti .contact-info .info-box').forEach(box => {
+                const link = box.querySelector('a');
+                if (link) {
+                    box.addEventListener('click', () => {
+                        const href = link.getAttribute('href');
+                        if (link.target === '_blank') {
+                            window.open(href);
+                        } else {
+                            window.location.href = href;
+                        }
+                    });
+                }
+            });
 
         });
     </script>
